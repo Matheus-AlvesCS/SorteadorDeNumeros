@@ -1,0 +1,15 @@
+:root {
+  --content-primary: #ffffff;
+  --content-secondary: #c7c9cc;
+  --content-brand: #c58de7;
+
+  --ff-sora: "Sora", sans-serif;
+  --ff-roboto-flex: "Roboto Flex", sans-serif;
+  --title-lg: 800 4.5rem/1.3 var(--ff-sora);
+  --title-md: 800 2.5rem/1.3 var(--ff-sora);
+  --label-lg: 700 1.25rem/1.5 var(--ff-roboto-flex);
+  --label-md: 700 1rem/1.5 var(--ff-roboto-flex);
+  --paragraph-lg: 500 1rem/1.5 var(--ff-roboto-flex);
+  --paragraph-md: 500 0.875rem/1.5 var(--ff-roboto-flex);
+  --paragraph-sm: 500 0.75rem/1.5 var(--ff-roboto-flex);
+}
