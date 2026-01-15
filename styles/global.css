@@ -24,9 +24,19 @@
 }
 
 body {
-  background: #020202 url(../assets/Shapes.png);
+  background: url("../assets/Shapes.png"),
+    linear-gradient(to bottom, #020202, #121214);
   min-height: 100dvh;
   padding-block: 2.75rem;
+  position: relative;
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background: linear-gradient(to bottom, #020202 0%, rgba(2, 2, 2, 0.5) 100%);
+  }
 }
 
 img {
@@ -53,6 +63,8 @@ img {
   main {
     flex: 1;
     padding-inline: 2rem;
+    max-width: 80rem;
+    margin-inline: auto;
 
     & > div {
       display: grid;
