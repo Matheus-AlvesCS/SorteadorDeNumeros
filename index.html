@@ -21,6 +21,47 @@
           <span>Online - Gratuito</span>
           <h1>Sorteador de Números</h1>
         </header>
+
+        <form>
+          <div>
+            <h2>Quero Sortear:</h2>
+            <p>
+              Defina o intervalo e a quantidade de números, clique em "Sortear"
+              e veja os resultados na tela. É rápido e fácil!
+            </p>
+          </div>
+
+          <div class="inputs-group">
+            <div class="inputs-row">
+              <div class="input-container">
+                <label for="numbers">Números</label>
+                <input type="text" name="numbers" id="numbers" />
+              </div>
+
+              <div class="input-container">
+                <label for="min">De</label>
+                <input type="text" name="min" id="min" />
+              </div>
+
+              <div class="input-container">
+                <label for="max">Até</label>
+                <input type="text" name="max" id="max" />
+              </div>
+            </div>
+
+            <div class="switch-container">
+              <label class="switch">
+                <input type="checkbox" name="no-repeat" id="no-repeat" />
+                <span class="slider"></span>
+              </label>
+              <span>Não repetir número</span>
+            </div>
+          </div>
+
+          <button type="submit">
+            Sortear <img src="./assets/icons/arrow.svg" />
+          </button>
+        </form>
       </div>
     </main>
   </body>
