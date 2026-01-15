@@ -1,0 +1,37 @@
+header {
+  padding-inline: 2rem;
+  margin-bottom: 2.625rem;
+
+  & span {
+    background: linear-gradient(to right, #c7c9cc 0%, #3d3d3d 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+    font: 700 1rem/1.5 "Roboto Mono", monospace;
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+  }
+
+  & h1 {
+    font: var(--title-md);
+    color: var(--content-primary);
+    text-transform: uppercase;
+  }
+
+  @media screen and (width >= 80rem) {
+    max-width: 32rem;
+    width: 100%;
+    padding-inline: initial;
+    grid-area: header;
+    margin-bottom: initial;
+
+    & span {
+      margin-bottom: 0.75rem;
+    }
+
+    & h1 {
+      font: var(--title-lg);
+    }
+  }
+}
