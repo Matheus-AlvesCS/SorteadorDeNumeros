@@ -1,0 +1,32 @@
+#questions {
+  margin-top: 5rem;
+  padding-inline: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2.75rem;
+
+  & > div {
+    display: flex;
+    gap: 0.5rem;
+
+    & > img {
+      align-self: flex-start;
+    }
+
+    & h3 {
+      font: var(--paragraph-md);
+      color: var(--content-brand);
+    }
+
+    & p {
+      font: var(--paragraph-sm);
+    }
+  }
+
+  @media screen and (width >= 80rem) {
+    grid-area: questions;
+    max-width: 32rem;
+    padding-inline: initial;
+    margin-top: initial;
+  }
+}

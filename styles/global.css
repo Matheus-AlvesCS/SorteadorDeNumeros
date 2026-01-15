@@ -38,3 +38,30 @@ img {
   margin-inline: auto;
   margin-bottom: 2.875rem;
 }
+
+@media screen and (width >= 80rem) {
+  body {
+    display: flex;
+    align-items: center;
+  }
+
+  .logo {
+    display: initial;
+    margin-bottom: 5.5rem;
+  }
+
+  main {
+    flex: 1;
+    padding-inline: 2rem;
+
+    & > div {
+      display: grid;
+      grid-template-areas:
+        "header form"
+        "questions form";
+      gap: 2.375rem;
+      align-items: center;
+      justify-items: center;
+    }
+  }
+}
