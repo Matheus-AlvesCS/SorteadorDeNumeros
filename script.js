@@ -7,6 +7,9 @@ const noRepeatInput = document.getElementById("no-repeat")
 const resultContainer = document.getElementById("result-container")
 const resultValues = document.getElementById("result-values")
 const restartBtn = document.getElementById("restart-btn")
+const resultRound = document.querySelector(
+  "#result-container > div:first-child span"
+)
 
 function validarInput(value) {
   return value.replace(/\D+/g, "")
@@ -94,7 +97,16 @@ function mostrarResultados(results) {
 
     resultValues.innerHTML = ""
     for (let index = 0; index < resultados.length; index++) {
-      resultValues.innerHTML += `<span>${resultados[index]}</span>`
+      const span = document.createElement("span")
+      span.textContent = resultados[index]
+
+      const delayValue = `${index * 0.5}s`
+      span.style.setProperty("--delay", delayValue)
+
+      resultValues.append(span)
+      setTimeout(() => {
+        resultRound.textContent = `${index + 1}° Resultado`
+      }, index * 500)
     }
 
     resultContainer.classList.remove("hidden")
