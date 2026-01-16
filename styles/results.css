@@ -43,6 +43,28 @@
       }
     }
   }
+
+  @media screen and (width >= 80rem) {
+    max-width: 30.125rem;
+    width: 100%;
+    grid-area: form;
+    margin-top: initial;
+
+    & #result-values {
+      max-height: 12rem;
+      overflow-y: scroll;
+
+      &::-webkit-scrollbar {
+        width: 4px;
+        display: block;
+      }
+
+      &::-webkit-scrollbar-thumb {
+        background-color: var(--content-brand);
+        border-radius: 0.5rem;
+      }
+    }
+  }
 }
 
 @keyframes rotate {
