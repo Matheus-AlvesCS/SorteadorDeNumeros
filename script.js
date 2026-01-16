@@ -2,21 +2,22 @@ const form = document.querySelector("form")
 const numbersInput = document.getElementById("numbers")
 const minInput = document.getElementById("min")
 const maxInput = document.getElementById("max")
+const noRepeatInput = document.getElementById("no-repeat")
 
-function validateInput(value) {
+function validarInput(value) {
   return value.replace(/\D+/g, "")
 }
 
 numbersInput.oninput = () => {
-  numbersInput.value = validateInput(numbersInput.value)
+  numbersInput.value = validarInput(numbersInput.value)
 }
 
 minInput.oninput = () => {
-  minInput.value = validateInput(minInput.value)
+  minInput.value = validarInput(minInput.value)
 }
 
 maxInput.oninput = () => {
-  maxInput.value = validateInput(maxInput.value)
+  maxInput.value = validarInput(maxInput.value)
 }
 
 form.addEventListener("submit", (event) => {
@@ -27,13 +28,55 @@ form.addEventListener("submit", (event) => {
     const minValue = parseInt(minInput.value)
     const maxValue = parseInt(maxInput.value)
 
+    const noRepeat = noRepeatInput.checked
+
+    if (isNaN(numbers) || isNaN(minValue) || isNaN(maxValue)) {
+      throw new Error(
+        "Preencha todos os campos corretamente para realizar o sorteio."
+      )
+    }
+
+    if (numbers === 0) {
+      throw new Error("Não é possível sortear 0 números.")
+    }
+
     if (maxValue <= minValue) {
       throw new Error("O valor máximo deve ser maior que o mínimo.")
     }
 
-    console.log("Enviado.")
+    if (noRepeat) {
+      const range = maxValue - minValue + 1
+      if (numbers > range) {
+        throw new Error(
+          `Não é possível gerar ${numbers} números únicos nesse intervalo.`
+        )
+      }
+    }
+
+    sortearNumeros(numbers, minValue, maxValue, noRepeat)
   } catch (error) {
     alert(error.message)
     console.log(error)
   }
 })
+
+function sortearNumeros(qntd, min, max, noRepeat) {
+  const resultados = []
+
+  if (noRepeat) {
+    const sorteados = new Set()
+    while (sorteados.size < qntd) {
+      const num = Math.floor(Math.random() * (max - min + 1)) + min
+      sorteados.add(num)
+    }
+
+    resultados.push(...sorteados)
+  } else {
+    for (let i = 0; i < qntd; i++) {
+      resultados.push(Math.floor(Math.random() * (max - min + 1)) + min)
+    }
+  }
+
+  console.log("Números sorteados: ", resultados)
+  return resultados
+}
