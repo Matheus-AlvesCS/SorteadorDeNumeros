@@ -8,7 +8,7 @@ const resultContainer = document.getElementById("result-container")
 const resultValues = document.getElementById("result-values")
 const restartBtn = document.getElementById("restart-btn")
 const resultRound = document.querySelector(
-  "#result-container > div:first-child span"
+  "#result-container > div:first-child span",
 )
 
 function validarInput(value) {
@@ -39,7 +39,7 @@ form.addEventListener("submit", (event) => {
 
     if (isNaN(numbers) || isNaN(minValue) || isNaN(maxValue)) {
       throw new Error(
-        "Preencha todos os campos corretamente para realizar o sorteio."
+        "Preencha todos os campos corretamente para realizar o sorteio.",
       )
     }
 
@@ -55,7 +55,7 @@ form.addEventListener("submit", (event) => {
       const range = maxValue - minValue + 1
       if (numbers > range) {
         throw new Error(
-          `Não é possível gerar ${numbers} números únicos nesse intervalo.`
+          `Não é possível gerar ${numbers} números únicos nesse intervalo.`,
         )
       }
     }
@@ -85,7 +85,6 @@ function sortearNumeros(qnt, min, max, noRepeat) {
     }
   }
 
-  console.log("Números sorteados: ", resultados)
   return resultados
 }
 
