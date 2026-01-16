@@ -4,6 +4,10 @@ const minInput = document.getElementById("min")
 const maxInput = document.getElementById("max")
 const noRepeatInput = document.getElementById("no-repeat")
 
+const resultContainer = document.getElementById("result-container")
+const resultValues = document.getElementById("result-values")
+const restartBtn = document.getElementById("restart-btn")
+
 function validarInput(value) {
   return value.replace(/\D+/g, "")
 }
@@ -53,30 +57,54 @@ form.addEventListener("submit", (event) => {
       }
     }
 
-    sortearNumeros(numbers, minValue, maxValue, noRepeat)
+    const resultados = sortearNumeros(numbers, minValue, maxValue, noRepeat)
+    mostrarResultados(resultados)
   } catch (error) {
     alert(error.message)
     console.log(error)
   }
 })
 
-function sortearNumeros(qntd, min, max, noRepeat) {
+function sortearNumeros(qnt, min, max, noRepeat) {
   const resultados = []
 
   if (noRepeat) {
     const sorteados = new Set()
-    while (sorteados.size < qntd) {
+    while (sorteados.size < qnt) {
       const num = Math.floor(Math.random() * (max - min + 1)) + min
       sorteados.add(num)
     }
 
     resultados.push(...sorteados)
   } else {
-    for (let i = 0; i < qntd; i++) {
+    for (let i = 0; i < qnt; i++) {
       resultados.push(Math.floor(Math.random() * (max - min + 1)) + min)
     }
   }
 
   console.log("Números sorteados: ", resultados)
   return resultados
+}
+
+function mostrarResultados(results) {
+  try {
+    const resultados = results
+
+    form.classList.add("hidden")
+
+    resultValues.innerHTML = ""
+    for (let index = 0; index < resultados.length; index++) {
+      resultValues.innerHTML += `<span>${resultados[index]}</span>`
+    }
+
+    resultContainer.classList.remove("hidden")
+  } catch (error) {
+    alert(error.message)
+    console.log(error)
+  }
+}
+
+restartBtn.onclick = () => {
+  resultContainer.classList.add("hidden")
+  form.classList.remove("hidden")
 }
