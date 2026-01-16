@@ -119,4 +119,15 @@ function mostrarResultados(results) {
 restartBtn.onclick = () => {
   resultContainer.classList.add("hidden")
   form.classList.remove("hidden")
+
+  clearForm()
+}
+
+function clearForm() {
+  numbersInput.value = ""
+  minInput.value = ""
+  maxInput.value = ""
+  noRepeatInput.checked = false
+
+  numbersInput.focus()
 }
