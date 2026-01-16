@@ -1,0 +1,75 @@
+#result-container {
+  margin-top: 4.375rem;
+
+  & > div:first-child {
+    text-align: center;
+    margin-bottom: 2.5rem;
+
+    & h2 {
+      font: var(--label-lg);
+      color: var(--content-primary);
+      margin-bottom: 0.25rem;
+      text-transform: uppercase;
+    }
+
+    & span {
+      font: 700 1rem/1.5 "Roboto Mono", monospace;
+      text-transform: uppercase;
+    }
+  }
+
+  & #result-values {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 0.25rem;
+
+    & span {
+      font: 700 2rem/1.5 "Roboto Mono", monospace;
+      color: #030203;
+      padding: 0.875rem 1.125rem;
+      position: relative;
+      animation: color-change 0.5s ease 1s forwards;
+
+      &::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background-color: var(--content-brand);
+        border-radius: 1.75rem;
+        z-index: -1;
+        animation: rotate 1s ease, disappear 0.5s ease 1s forwards;
+      }
+    }
+  }
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg) scale(0);
+    opacity: 0;
+  }
+  to {
+    transform: rotate(720deg) scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes disappear {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes color-change {
+  from {
+    color: #030203;
+  }
+  to {
+    color: var(--content-brand);
+  }
+}

@@ -1,6 +1,4 @@
 form {
-  padding-inline: 2rem;
-
   & > div:first-child {
     margin-bottom: 2.5rem;
 
@@ -118,46 +116,9 @@ form {
     }
   }
 
-  & button {
-    background: linear-gradient(#24222e, #24222e) padding-box,
-      linear-gradient(#24222e, #24222e) border-box;
-    background-size: 100% 100%, 100% 100%;
-    width: 100%;
-    padding: 1rem;
-    border: 2px solid transparent;
-    border-radius: 0.5rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.5rem;
-    color: var(--content-primary);
-    font: var(--label-md);
-    text-transform: uppercase;
-    cursor: pointer;
-    margin-top: 2.5rem;
-    outline: none;
-
-    &:hover,
-    &:focus {
-      background: linear-gradient(#24222e, #24222e) padding-box,
-        linear-gradient(
-            to right,
-            #77c0af 0%,
-            #d1dc97 14.84%,
-            #e9a9b3 32.15%,
-            #d586e0 65.79%,
-            #91a1fa 84.58%
-          )
-          border-box;
-      background-size: 100% 100%, 300% 100%;
-      animation: borderMove 4s linear infinite;
-    }
-  }
-
   @media screen and (width >= 80rem) {
     max-width: 30.125rem;
     grid-area: form;
-    padding-inline: initial;
   }
 }
 
