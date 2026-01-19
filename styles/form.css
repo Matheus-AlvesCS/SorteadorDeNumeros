@@ -26,7 +26,8 @@ form {
     }
 
     & > input {
-      background: linear-gradient(#111012, #111012) padding-box,
+      background:
+        linear-gradient(#111012, #111012) padding-box,
         linear-gradient(#111012, #111012) border-box;
       border: 2px solid transparent;
       outline: 2px solid transparent;
@@ -40,7 +41,8 @@ form {
 
       &:hover,
       &:focus {
-        background: linear-gradient(#111012, #111012) padding-box,
+        background:
+          linear-gradient(#111012, #111012) padding-box,
           linear-gradient(
               to right,
               #77c0af 0%,
@@ -124,9 +126,13 @@ form {
 
 @keyframes borderMove {
   from {
-    background-position: 0% 0%, 0% 0%;
+    background-position:
+      0% 0%,
+      0% 0%;
   }
   to {
-    background-position: 0% 0%, 150% 0%;
+    background-position:
+      0% 0%,
+      150% 0%;
   }
 }

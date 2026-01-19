@@ -4,6 +4,8 @@ const minInput = document.getElementById("min")
 const maxInput = document.getElementById("max")
 const noRepeatInput = document.getElementById("no-repeat")
 
+const errorContainer = document.querySelector(".error")
+
 const resultContainer = document.getElementById("result-container")
 const resultValues = document.getElementById("result-values")
 const restartBtn = document.getElementById("restart-btn")
@@ -63,7 +65,7 @@ form.addEventListener("submit", (event) => {
     const resultados = sortearNumeros(numbers, minValue, maxValue, noRepeat)
     mostrarResultados(resultados)
   } catch (error) {
-    alert(error.message)
+    showError(error.message)
     console.log(error)
   }
 })
@@ -110,7 +112,7 @@ function mostrarResultados(results) {
 
     resultContainer.classList.remove("hidden")
   } catch (error) {
-    alert(error.message)
+    showError(error.message)
     console.log(error)
   }
 }
@@ -129,4 +131,15 @@ function clearForm() {
   noRepeatInput.checked = false
 
   numbersInput.focus()
+}
+
+function showError(errorMessage) {
+  const errorSpan = errorContainer.querySelector("span")
+
+  errorSpan.textContent = errorMessage
+  errorContainer.classList.remove("hidden")
+
+  setTimeout(() => {
+    errorContainer.classList.add("hidden")
+  }, 5000)
 }

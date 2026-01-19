@@ -24,8 +24,8 @@
 }
 
 body {
-  background: url("../assets/Shapes.png"),
-    linear-gradient(to bottom, #020202, #121214);
+  background:
+    url("../assets/Shapes.png"), linear-gradient(to bottom, #020202, #121214);
   min-height: 100dvh;
   padding-block: 2.75rem;
   position: relative;
@@ -53,14 +53,37 @@ img {
   margin-bottom: 2.875rem;
 }
 
+.error {
+  background-color: #8d0406;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+
+  & > img {
+    width: 1rem;
+    height: 1rem;
+  }
+
+  & > span {
+    font: var(--paragraph-sm);
+    color: var(--content-primary);
+  }
+}
+
 .hidden {
   display: none;
 }
 
 & .button {
-  background: linear-gradient(#24222e, #24222e) padding-box,
+  background:
+    linear-gradient(#24222e, #24222e) padding-box,
     linear-gradient(#24222e, #24222e) border-box;
-  background-size: 100% 100%, 100% 100%;
+  background-size:
+    100% 100%,
+    100% 100%;
   width: 100%;
   padding: 1rem;
   border: 2px solid transparent;
@@ -78,7 +101,8 @@ img {
 
   &:hover,
   &:focus {
-    background: linear-gradient(#24222e, #24222e) padding-box,
+    background:
+      linear-gradient(#24222e, #24222e) padding-box,
       linear-gradient(
           to right,
           #77c0af 0%,
@@ -88,7 +112,9 @@ img {
           #91a1fa 84.58%
         )
         border-box;
-    background-size: 100% 100%, 300% 100%;
+    background-size:
+      100% 100%,
+      300% 100%;
     animation: borderMove 4s linear infinite;
   }
 }
